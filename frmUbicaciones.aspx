@@ -44,6 +44,13 @@
                 <div class="col-md-8">
                     <br />
                     <h1>Ubicaciones</h1>
+                    <asp:GridView runat="server" ID="gvUbicaciones" CssClass="table-responsive table table-bordered">
+                        <Columns>
+                            <asp:ButtonField CommandName="btnSeleccionar" Text="Seleccionar" ControlStyle-CssClass="">
+                                <ControlStyle CssClass="btn btn-info"></ControlStyle>
+                            </asp:ButtonField>
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
         </div>

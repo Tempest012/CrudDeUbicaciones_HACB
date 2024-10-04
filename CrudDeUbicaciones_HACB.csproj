@@ -90,6 +90,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLLv2\BLLv2.csproj">
+      <Project>{604dfaf1-42d2-46ed-8cde-93c52d0e2e22}</Project>
+      <Name>BLLv2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DALv2\DALv2.csproj">
+      <Project>{469f2e79-1390-4a2b-ac44-9b4736fdada2}</Project>
+      <Name>DALv2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
