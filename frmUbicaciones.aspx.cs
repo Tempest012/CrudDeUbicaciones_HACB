@@ -28,7 +28,27 @@ namespace CrudDeUbicaciones_HACB
             gvUbicaciones.DataSource = oUbicacionesDAL.Listar();
             gvUbicaciones.DataBind();
         }
+        //Método encargado de recolectar los datos de nuestra interfáz
+        public ubicaciones_BLL datosUbicacion()
+        {
+            int ID = 0;
+            int.TryParse(txtID.Value, out ID);
+            oUbicacionesBLL = new ubicaciones_BLL();
 
-   
+            //Recolectar datos de la capa de presentación
+            oUbicacionesBLL.ID = ID;
+            oUbicacionesBLL.Ubicacion = txtUbicacion.Text;
+            oUbicacionesBLL.Latitud=txtLat.Text;
+            oUbicacionesBLL.Longitud = txtLong.Text;
+
+            return oUbicacionesBLL;
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            oUbicacionesDAL = new ubicacionesDAL();
+            oUbicacionesDAL.Agregar(datosUbicacion());
+            ListarUbicaciones(); //Para mostrarlo en el GV
+        }
     }
 }
