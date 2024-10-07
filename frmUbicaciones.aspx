@@ -36,21 +36,25 @@
                     <!-- Controles de alta, bajas y cambios -->
                     <div class="form-group">
                         <asp:Button ID="btnAgregar" CssClass="btn btn-success" runat="server" Text="Agregar" UseSubmitBehavior="false" OnClick="btnAgregar_Click" />
-                        <asp:Button ID="btnModificar" CssClass="btn btn-warning" runat="server" Text="Modificar" UseSubmitBehavior="false" Enabled="false"/>
-                        <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" UseSubmitBehavior="false" Enabled="false" />
+                        <asp:Button ID="btnModificar" CssClass="btn btn-warning" runat="server" Text="Modificar" UseSubmitBehavior="false" Enabled="false" OnClick="btnModificar_Click"/>
+                        <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" UseSubmitBehavior="false" Enabled="false" OnClick="btnEliminar_Click" />
                         <asp:Button ID="btnLimpiar" CssClass="btn btn-default" runat="server" Text="Limpiar" UseSubmitBehavior="false" />
                     </div>
                 </div>
                 <div class="col-md-8">
                     <br />
                     <h1>Ubicaciones</h1>
-                    <asp:GridView runat="server" ID="gvUbicaciones" CssClass="table-responsive table table-bordered">
+                    <asp:GridView runat="server" ID="gvUbicaciones" CssClass="table-responsive table table-bordered" OnRowCommand="gvUbicaciones_RowCommand">
                         <Columns>
-                            <asp:ButtonField CommandName="btnSeleccionar" Text="Seleccionar" ControlStyle-CssClass="">
+                            <asp:BoundField DataField="ID" HeaderText="ID" />
+                            <asp:ButtonField ButtonType="Button" CommandName="btnSeleccionar"  Text="Seleccionar" ControlStyle-CssClass="" >
                                 <ControlStyle CssClass="btn btn-info"></ControlStyle>
                             </asp:ButtonField>
+
                         </Columns>
                     </asp:GridView>
+                    <asp:HiddenField ID="hfIDSeleccionado" runat="server" />
+                    <asp:Label ID="lblMensaje" runat="server" CssClass="alert alert-info" />
                 </div>
             </div>
         </div>
